@@ -1,0 +1,721 @@
+.business {
+  $this: &;
+
+  &__header {
+    min-height: 450px;
+
+    @media (min-width: 1023px) {
+      min-height: 600px;
+    }
+  }
+
+  &__header-content {
+    animation: .5s ease-out 0s 1 slideInFromBottom;
+  }
+
+  &__screens-content {
+    max-width: 580px;
+    padding-top: 17.5vh;
+
+    @media (min-width: 1600px) {
+      padding-top: 20vh;
+    }
+
+    @media (min-width: 1800px) {
+      padding-top: 25vh;
+    }
+
+    @media (min-width: 2400px) {
+      padding-top: 30vh;
+    }
+  }
+
+  &__screens-image-wrapper {
+    flex: 0 0 105%;
+
+    img {
+      width: 100%;
+      min-width: 520px;
+      overflow: hidden;
+      box-shadow: -25px 25px 50px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+  }
+
+  &__screen-on-visible {
+    transform: translate(0, 40px);
+    opacity: .4;
+    transition: all .25s ease-out .15s;
+
+    &.business__screen-on-visible-show {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+
+  &__screens-item {
+    min-height: 300px;
+
+    @media (min-width: 768px) {
+      height: 130vh;
+    }
+
+    @media (min-width: 1024px) {
+      height: 200vh;
+    }
+  }
+
+  &__map-container {
+    display: flex;
+    align-items: center;
+    height: calc(100vh + 100px);
+    background: linear-gradient(108.17deg, #2F323A 17.52%, #191B20 96.86%);
+
+    @media (max-width: 768px) {
+      align-items: flex-start;
+    }
+  }
+
+  &__map-icon {
+    width: 100%;
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    transform: scale(.85);
+
+    svg {
+      max-width: 1600px;
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      width: 100%;
+    }
+
+    &.isVisible {
+      .business__blob {
+        transform: translate(0, 0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__map-icon-bottom {
+    transform: translate(0, 102px) scale(.85);
+  }
+
+  &__arrow-link {
+    .business__arrow-link-icon {
+      transition: transform .15s ease-in-out;
+    }
+
+    &:hover {
+      .business__arrow-link-icon {
+        transform: translate(10px, 0);
+      }
+    }
+  }
+
+  &__arrow-link-icon {
+    width: 74px;
+    height: 74px;
+    flex: 0 0 74px;
+
+    @media (max-width: 767px) {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+    }
+  }
+
+  &__blob {
+    position: absolute;
+    background: #68B6F3;
+    border-radius: 50%;
+    margin: 10px;
+    height: 6px;
+    width: 6px;
+    visibility: hidden;
+
+    box-shadow: 0 0 0 0 rgba(104, 182, 243, 1);
+    animation: pulse 2s infinite;
+    opacity: 0;
+    transform: translate(0, 10px);
+
+    &.dot-1 {
+      top: 28%;
+      left: 17.8%;
+      transition: all .25s ease-in-out 0s;
+    }
+
+    &.dot-2 {
+      top: 22%;
+      left: 16.8%;
+      transition: all .25s ease-in-out .2s;
+    }
+
+    &.dot-3 {
+      top: 25%;
+      left: 13.8%;
+      transition: all .25s ease-in-out .4s;
+    }
+
+    &.dot-4 {
+      top: 28.5%;
+      left: 13%;
+      transition: all .25s ease-in-out .6s;
+    }
+
+    &.dot-5 {
+      top: 57.5%;
+      left: 29%;
+      transition: all .25s ease-in-out .8s;
+    }
+
+    &.dot-6 {
+      top: 13.7%;
+      left: 40.7%;
+      transition: all .25s ease-in-out 1s;
+    }
+
+    &.dot-7 {
+      top: 19%;
+      left: 41%;
+      transition: all .25s ease-in-out 1.2s;
+    }
+
+    &.dot-8 {
+      top: 22.5%;
+      left: 39.3%;
+      transition: all .25s ease-in-out 0s;
+    }
+
+    &.dot-9 {
+      top: 31.5%;
+      left: 38.5%;
+      transition: all .25s ease-in-out .2s;
+    }
+
+    &.dot-10 {
+      top: 23.5%;
+      left: 46%;
+      transition: all .25s ease-in-out .4s;
+    }
+
+    &.dot-11 {
+      top: 18.5%;
+      left: 44.3%;
+      transition: all .25s ease-in-out .6s;
+    }
+
+    &.dot-12 {
+      top: 20.5%;
+      left: 46.3%;
+      transition: all .25s ease-in-out .8s;
+    }
+
+    &.dot-13 {
+      top: 18%;
+      left: 48.3%;
+      transition: all .25s ease-in-out 1s;
+    }
+
+    &.dot-14 {
+      top: 39%;
+      left: 55.3%;
+      transition: all .25s ease-in-out 1.2s;
+    }
+
+    &.dot-15 {
+      top: 39%;
+      left: 66.3%;
+      transition: all .25s ease-in-out 1.4s;
+    }
+
+    &.dot-16 {
+      top: 27%;
+      left: 77.3%;
+      transition: all .25s ease-in-out 1.6s;
+    }
+  }
+
+  &__map-content {
+    padding-top: 65vh;
+
+    @media (max-width: 767px) {
+      padding-top: 60vw;
+    }
+  }
+
+  &__promo-content {
+    opacity: 1;
+    transition: opacity .15s ease-in-out;
+
+    &.isPreview {
+      opacity: .2;
+    }
+  }
+
+
+  &__promo-preview {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50px;
+    width: 46%;
+    font-weight: 500;
+    font-size: 75px;
+    line-height: 91px;
+    color: #E5EAF5;
+    transition: color .15s ease-in-out;
+
+    &.business-transfers {
+      #{$this}__promo-preview-img-wrapper {
+        position: absolute;
+        top: 170px;
+        left: -10%;
+        text-align: right;
+
+        img {
+          transition: transform .35s ease-in-out;
+        }
+      }
+
+      #{$this}__promo-preview-img-toggle {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 150px;
+        height: 30px;
+        transition: transform .15s ease-in-out;
+
+        svg {
+          margin-right: 10px;
+        }
+
+        @media (max-width: 1279px) {
+          margin-right: 230px;
+        }
+      }
+
+      #{$this}__promo-preview-text {
+        width: 500px;
+        transition: transform .25s ease-in-out;
+      }
+
+      &.isPreview {
+        #{$this}__promo-preview-text {
+          transform: translate(-60px, 0);
+        }
+
+        #{$this}__promo-preview-img-view {
+          transform: translate(80%, 0);
+        }
+      }
+    }
+
+    &.prepaid-cards {
+      left: 0;
+      right: auto;
+
+      /*img {
+        border: none;
+        box-shadow: none;
+        min-width: 500px;
+        max-width: 577px;
+
+        @media (max-width: 1279px) {
+          min-width: 450px;
+          max-width: 480px;
+        }
+      }*/
+
+      #{$this}__promo-preview-svg {
+        min-width: 500px;
+        max-width: 577px;
+        transform: scale(0.9);
+        transition: transform .25s ease-in-out;
+
+        @media (max-width: 1279px) {
+          transform: scale(0.9) translate(-100px, 0);
+        }
+      }
+
+      #{$this}__promo-preview-img-wrapper {
+        top: 10%;
+        left: auto;
+        right: 0;
+      }
+
+      #{$this}__promo-preview-img-toggle  {
+        margin-right: 0;
+      }
+
+      #{$this}__promo-preview-text {
+        width: 460px;
+        transform: translate(4rem, 0);
+      }
+
+      @media (max-width: 1279px) {
+        width: 46%;
+      }
+
+      &.isPreview {
+        #{$this}__prepaid-cards-images-wrapper {
+          transform: translate(-95%, 0);
+        }
+
+        #{$this}__promo-preview-text {
+          transform: translate(8rem, 0);
+
+          @media (max-width: 1279px) {
+            transform: translate(3rem, 0);
+          }
+        }
+
+        #{$this}__promo-preview-svg {
+          transform: scale(0.9) translate(-85%, 0);
+
+          @media (max-width: 1279px) {
+            transform: scale(0.9) translate(-102%, 0);
+          }
+        }
+
+        #{$this}__promo-preview-img-toggle {
+          transform: translate(2rem, 0);
+
+          @media (max-width: 1279px) {
+            transform: translate(0rem, 0);
+          }
+        }
+      }
+    }
+
+    &.payment-gfa {
+      position: relative;
+      min-height: 700px;
+      top: 1px;
+
+      #{$this}__promo-preview-img-wrapper {
+        bottom: -65px;
+        transform: translate(8rem, 0);
+      }
+
+      img {
+        border: none;
+        box-shadow: none;
+        max-width: 454px;
+        min-width: 400px;
+        bottom: 0;
+      }
+
+      #{$this}__promo-preview-text {
+        transform: translate(-6rem, 0);
+      }
+
+      #{$this}__promo-preview-img-toggle {
+        transform: translate(12rem, 60px);
+
+        @media (max-width: 1279px) {
+          transform: translate(-8rem, 0px);
+        }
+      }
+
+      &.isPreview {
+        #{$this}__promo-preview-text {
+          transform: translate(-6rem, 0);
+        }
+
+        #{$this}__promo-preview-img-wrapper img {
+          transform: translate(80%, 0);
+        }
+      }
+    }
+
+    @media (max-width: 1279px) {
+      width: 34%;
+      font-size: 60px;
+      padding-left: 10px;
+    }
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+
+    &.isPreview {
+      color: #363C40;
+    }
+  }
+
+  &__prepaid-cards-images-wrapper {
+    width: 600px;
+    height: 680px;
+    transform: translate(0, 0);
+    transition: transform .25s ease-in-out;
+  }
+
+  &__prepaid-cards-wrapper {
+    width: 388px;
+    position: absolute;
+    bottom: 20px;
+    right: 180px;
+    z-index: 6;
+
+    img {
+      width: 388px;
+      box-shadow: -25px 25px 50px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+  }
+
+  &__upa-images-container {
+    display: flex;
+    align-items: center;
+    width: 320px;
+    border: 2px solid #363C40;
+    box-shadow: -25px 25px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translate(0, -50%);
+
+    img {
+      width: 320px;
+    }
+  }
+
+  &__prepaid-cards-mobile-wrapper {
+    position: absolute;
+    right: 0;
+    border: 2px solid #363C40;
+    box-shadow: -25px 25px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 320px;
+
+    img {
+      width: 100%;
+      align-self: flex-start;
+    }
+  }
+
+  &__promo-preview-img-view {
+    border: 2px solid #363C40;
+    box-shadow: -25px 25px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 47vw;
+    min-width: 600px;
+    max-width: 900px;
+
+    img {
+      width: 100%;
+      align-self: flex-start;
+    }
+  }
+
+  &__promo-preview-img-wrapper {
+    position: absolute;
+    bottom: -125px;
+    left: -10%;
+    text-align: right;
+
+    img,
+    #{$this}__promo-preview-img-view {
+      transition: transform .35s ease-in-out;
+    }
+  }
+
+  &__promo-preview-img-toggle {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 150px;
+    height: 30px;
+    overflow: hidden;
+    transition: transform .15s ease-in-out;
+
+    svg {
+      height: 12px;
+      margin-left: 5px;
+      margin-right: 10px;
+
+      path {
+        fill: #363C40;
+      }
+    }
+
+    .icon {
+      transform: rotate(180deg) translate(0, 0);
+      transition: transform .15s ease-in-out;
+    }
+
+    &:hover {
+      .icon {
+        transform: rotate(180deg) translate(5px, 0);
+      }
+    }
+
+    @media (max-width: 1279px) {
+      margin-right: 230px;
+    }
+  }
+
+  &__promo-preview-text {
+    width: 500px;
+    transition: transform .25s ease-in-out;
+  }
+
+  &__review-text {
+    width: 90%;
+    max-width: 980px;
+  }
+
+  &__review-wrapper {
+    background: linear-gradient(112.91deg, #2F323A 17.52%, #191B20 96.86%);
+  }
+
+  &__review-slider,
+  &__payment-slider {
+    @media (min-width: 1024px) {
+      max-width: 760px;
+    }
+
+    .slick-slide > div > div {
+      outline: none;
+    }
+
+    .slick-dots {
+      width: 116px;
+      bottom: -40px;
+      cursor: default;
+      transform: translate(26px, 0);
+    }
+
+    .slick-dots li {
+      position: relative;
+      display: none;
+      height: 20px;
+      margin: 0 5px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .slick-dots li.slick-active {
+      display: inline-block;
+      cursor: default;
+      width: 116px !important;
+    }
+
+    #{$this}__review-slider-pagination {
+      width: 116px !important;
+    }
+
+    .slick-arrow {
+      background-size: 24px 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 24px;
+      height: 12px;
+      position: absolute;
+      bottom: -34px;
+      top: auto;
+      transform: translate(26px, 0);
+      background-image: url('../img/arrow.webp');
+      transition: background-image 0.2s ease-in-out;
+
+      &:before {
+        display: none;
+      }
+
+      &:hover {
+        background-image: url('../img/arrow-green.webp');
+      }
+
+      &.slick-next {
+        transform: translate(24px, 0) rotate(180deg);
+        left: 122px;
+        right: auto;
+      }
+    }
+  }
+
+
+  &__payment-slider {
+    width: 1000px;
+
+    @media (min-width: 1024px) {
+      max-width: none;
+    }
+
+    @media (max-width: 1023px) {
+      width: 700px;
+    }
+
+    .slick-slide {
+      cursor: pointer;
+      opacity: .1;
+      transition: opacity .15s ease-in-out;
+
+      &:hover {
+        opacity: .2;
+      }
+
+      &.slick-current {
+        opacity: 1;
+        cursor: default;
+      }
+    }
+
+    .slick-arrow {
+      transform: translate(32px, 0);
+
+      &.slick-next {
+        left: 40px;
+      }
+    }
+  }
+
+  &__platform-image {
+    img {
+      align-self: flex-start;
+      width: 780px;
+      max-width: none;
+      box-shadow: -25px 25px 50px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+  }
+
+  &__recipient-list-icon {
+    position: relative;
+    top: 8px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(104, 182, 243, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(104, 182, 243, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(104, 182, 243, 0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

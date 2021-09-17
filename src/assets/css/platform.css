@@ -1,0 +1,126 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+ol.list-lower-alpha ol.list-lower-alpha {
+  list-style-type: upper-roman;
+  font-weight: normal !important;
+}
+
+ol.list-lower-alpha > li,
+ol.list-lower-alpha > li > h5 {
+  font-weight: 700;
+}
+
+ol.list-lower-alpha > li > * {
+  font-weight: normal;
+}
+
+.firstMile {
+  overflow: hidden;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .firstMile:before,
+  .firstMile:after {
+    background-color: #ebeaed;
+    opacity: 0.2;
+    content: '';
+    width: 2px;
+    position: relative;
+    vertical-align: middle;
+    height: 50%;
+  }
+
+  .firstMile--blue:after,
+  .firstMile--blue:before {
+    background-color: #cbdbe3;
+  }
+
+  .firstMile:before {
+    height: 74%;
+  }
+
+  .firstMile:before {
+    right: 0;
+    bottom: 73px;
+    margin-left: 0;
+  }
+
+  .firstMile:after {
+    left: 0;
+    top: 65px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .line-between {
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .line-between:before,
+  .line-between:after {
+    background-color: #000;
+    content: '';
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+
+  .line-between:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+
+  .line-between:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+}
+
+.slider-slide:focus {
+  outline: none !important;
+}
+
+.modal-base {
+  background: rgba(244, 245, 245, 0.8);
+  backdrop-filter: blur(3px);
+  z-index: 99999 !important;
+}
+
+.modal-base__card {
+  box-shadow: 0px 14px 40px rgba(44, 45, 51, 0.2);
+  border-radius: 2px;
+  z-index: 99999 !important;
+  min-height: 50vh;
+  max-width: 37rem;
+}
+
+.simple-trans-main > div {
+  will-change: transform, opacity;
+}
+
+.slide-visible > .slide {
+  box-shadow: 0px 14px 80px rgba(44, 45, 51, 0.3);
+}
+
+.animated-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+/* TW Left/Right/Top/Bottom */
+.left-1\/2 {
+  left: 50%
+}

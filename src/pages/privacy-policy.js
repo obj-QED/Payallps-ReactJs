@@ -1,0 +1,216 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { SEO } from '../components/SEO';
+import { Nav } from '../components/Nav';
+import { Layout } from '../components/Layout';
+import { Footer } from '../components/Footer';
+import { useStaticQuery, graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXProvider } from '@mdx-js/react';
+import classNames from 'classnames';
+import { Link } from 'gatsby';
+
+const PrivacyPage = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query PrivacyQuery {
+      privacy: allMdx(
+        sort: { fields: frontmatter___chapter, order: ASC }
+        filter: { fileAbsolutePath: { regex: "/privacy/" } }
+      ) {
+        edges {
+          node {
+            body
+            frontmatter {
+              name
+              chapter
+              slug
+            }
+          }
+        }
+      }
+      metaImage: file(absolutePath: { regex: "/homepage.webp/" }) {
+        childImageSharp {
+          fixed(quality: 100, width: 1200) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
+  const [positions, setPositions] = useState([]);
+  const [scroll, setScroll] = useState(0);
+  const conceptItems = useRef([]);
+
+  const [selectedChapter, setSelectedChapter] = useState(
+    data.privacy.edges[0].node.frontmatter.slug
+  );
+
+  useEffect(() => {
+    const initialSlug = data.privacy.edges.find(
+      item => `#${item.node.frontmatter.slug}` === location.hash
+    );
+
+    if (!!initialSlug && initialSlug.node.frontmatter.slug) {
+      setSelectedChapter(initialSlug.node.frontmatter.slug);
+    }
+
+    const handleScroll = () => {
+      setScroll(document.documentElement.scrollTop);
+    };
+
+    setTimeout(() => {
+      setPositions([
+        0,
+        ...conceptItems.current.map(
+          concept =>
+            concept.getBoundingClientRect().top + window.pageYOffset - 100
+        ),
+        999999,
+      ]);
+
+      document.addEventListener('scroll', handleScroll);
+    }, 500);
+
+    return () =>
+      document.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const element = document.getElementById(selectedChapter);
+    const yOffset = -80;
+    const yPosition =
+      element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    if (location.hash) {
+      setTimeout(() => {
+        window.scrollTo({ top: yPosition, behavior: 'smooth' });
+      }, 500);
+    }
+  }, [selectedChapter]);
+
+  const handleChapterChange = (e, slug) => {
+    e.preventDefault();
+    window.location.hash = `#${slug}`;
+    setSelectedChapter(slug);
+  };
+
+  return (
+    <Layout>
+      <SEO
+        title="Privacy Policy"
+        image={data.metaImage.childImageSharp.fixed.src}
+      />
+      <header className="relative overflow-hidden bg-center bg-no-repeat bg-cover">
+        <div className="absolute inset-0 z-0 w-full h-full bg-gray-100" />
+        <Nav />
+        <div className="container relative z-10 flex flex-col justify-between px-6 mx-auto lg:px-16">
+          <div className="mb-10 xxl:mb-26">
+            <h1 className="w-10/12 mb-6 text-xl font-bold text-gray-800 lg:text-35px lg:mb-14">
+              Payall Privacy Policy
+            </h1>
+          </div>
+        </div>
+      </header>
+      <div className="container relative flex flex-col justify-between px-6 mx-auto my-10 md:flex-row lg:px-16 lg:my-20 " id="privacyLayout">
+        <div className="relative z-10 hidden max-w-sm lg:block">
+          <div className="sticky left-0 pt-1" style={{ top: 80 }}>
+            {data.privacy.edges.map((chapter, key) => (
+              <Link
+                key={key}
+                to={`/privacy-policy#${chapter.node.frontmatter.slug}`}
+                onClick={e =>
+                  handleChapterChange(e, chapter.node.frontmatter.slug)
+                }
+                className={classNames(
+                  'text-gray-500 flex items-center cursor-pointer leading-6 hover:text-blue-600 mb-2 pr-10 py-2',
+                  {
+                    'text-gray-800 font-bold text-base border-r-2 border-blue-600 -mr-2px':
+                      (scroll >= positions[key + 1] && scroll < positions[key + 2]) || (key === 0 && scroll < positions[key + 2]),
+                    'font-normal text-gray-500 ':
+                      selectedChapter !== chapter.node.frontmatter.slug,
+                  }
+                )}
+              >
+                {chapter.node.frontmatter.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="relative flex-1 w-full lg:border-l-2 md:pl-10 lg:pl-20 lg:pr-8 lg:border-gray-150 lg:block">
+          <MDXProvider
+            components={{
+              p: props => (
+                <p
+                  {...props}
+                  className="mb-5 leading-6 text-gray-800 text-xsm"
+                />
+              ),
+              a: props => <a {...props} className="text-blue-600" />,
+              h3: props => (
+                <h3
+                  {...props}
+                  className="mb-5 text-xl font-semibold leading-7.5 text-gray-800"
+                />
+              ),
+              ol: props => (
+                <ol
+                  {...props}
+                  className="pl-5 leading-6 text-gray-800 list-lower-alpha text-xsm "
+                />
+              ),
+              li: props => <li {...props} className="mb-5 text-gray-800" />,
+              h5: props => <h5 {...props} className="mb-3 font-bold " />,
+              h6: props => (
+                <h6
+                  {...props}
+                  className="mb-6 font-bold text-gray-800 uppercase text-xxxs"
+                />
+              ),
+              table: props => (
+                <table
+                  {...props}
+                  className="block w-full overflow-auto border-collapse "
+                />
+              ),
+              td: props => (
+                <td
+                  {...props}
+                  className="p-4 text-sm text-gray-800 border border-gray-150"
+                  valign="top"
+                />
+              ),
+              th: props => (
+                <th
+                  {...props}
+                  className="px-3 text-sm border border-gray-150"
+                />
+              ),
+              thead: props => (
+                <thead
+                  {...props}
+                  className="font-bold tracking-wide text-gray-400 uppercase border-b-2 border-gray-400 text-xxs"
+                />
+              ),
+            }}
+          >
+            <div>
+              {data.privacy.edges.map((item, key) => (
+                <div
+                  key={key}
+                  className="mb-10"
+                  id={item.node.frontmatter.slug}
+                  ref={el => (conceptItems.current[key] = el)}
+                >
+                  <MDXRenderer>{item.node.body}</MDXRenderer>
+                </div>
+              ))}
+            </div>
+          </MDXProvider>
+        </div>
+      </div>
+      <Footer />
+    </Layout>
+  );
+};
+
+export default PrivacyPage;

@@ -1,0 +1,99 @@
+.form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border-color: #ebeaed;
+  border-width: 1px;
+  border-radius: 0.125rem;
+  padding-top: 0.75rem;
+  padding-right: 1rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #2f323a;
+  height: 3.5rem;
+  font-weight: 500;
+}
+
+.form-input::-webkit-input-placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-input:-ms-input-placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-input::-ms-input-placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-input::placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #68b6f3;
+  background: #fff;
+}
+
+.form-input.form-error {
+  border-color: #f63f6c;
+}
+
+.form-textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border-color: #e2e8f0;
+  border-width: 1px;
+  border-radius: 0.125rem;
+  padding-top: 1.25rem;
+  padding-right: 1rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  height: 9rem;
+}
+
+.form-textarea::-webkit-input-placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-textarea:-ms-input-placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-textarea::-ms-input-placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-textarea::placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #68b6f3;
+  background: #fff;
+}
+
+#g-recaptcha {
+  transform: scale(0.77);
+  transform-origin: 0 0;
+}

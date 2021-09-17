@@ -1,0 +1,26 @@
+.nav {
+  &__menu {
+    transform: translateY(-100px);
+    animation: .5s ease-out .5s 1 slideInFromTop forwards;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media(max-width: 1280px) {
+  .nav__menu {
+    display: none;
+  }
+  .humburger {
+    display: block;
+  }
+}
